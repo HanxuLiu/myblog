@@ -156,7 +156,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/about.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -181,7 +181,7 @@
           >
           
             <div class="about-avatar">
-              <img src="/img/avatar.png" srcset="/img/loading.gif" lazyload
+              <img src="/img/me.jpg" srcset="/img/loading.gif" lazyload
                    class="img-fluid" alt="avatar">
             </div>
           
@@ -240,7 +240,21 @@
 
 <article class="about-content page-content mt-5">
   <div class="markdown-body">
-    <h2 id="这里写关于页的正文，支持-Markdown-HTML"><a href="#这里写关于页的正文，支持-Markdown-HTML" class="headerlink" title="这里写关于页的正文，支持 Markdown, HTML"></a>这里写关于页的正文，支持 Markdown, HTML</h2>
+    <hr>
+<h3 id="个人介绍"><a href="#个人介绍" class="headerlink" title="个人介绍"></a>个人介绍</h3><div class="note note-success">
+            <p>一名刚入职不久的程序员</p>
+          </div>
+
+<div class="note note-primary">
+            <p>业余喜欢自己瞎折腾</p>
+          </div>
+
+<div class="note note-info">
+            <p>邮箱：<a href="mailto:&#x6c;&#105;&#x75;&#112;&#97;&#111;&#x70;&#97;&#111;&#53;&#50;&#x30;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#109;">&#x6c;&#105;&#x75;&#112;&#97;&#111;&#x70;&#97;&#111;&#53;&#50;&#x30;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#109;</a></p>
+          </div>
+
+<hr>
+
   </div>
 
   
@@ -321,6 +335,43 @@
   
 
   
+
+<span id="sitetime"></span>
+<script language=javascript>
+        function siteTime(){
+                window.setTimeout("siteTime()", 1000);
+                var seconds = 1000;
+                var minutes = seconds * 60;
+                var hours = minutes * 60;
+                var days = hours * 24;
+                var years = days * 365;
+                var today = new Date();
+                var todayYear = today.getFullYear();
+                var todayMonth = today.getMonth()+1;
+                var todayDate = today.getDate();
+                var todayHour = today.getHours();
+                var todayMinute = today.getMinutes();
+                var todaySecond = today.getSeconds();
+                /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                year - 作为date对象的年份，为4位年份值
+                month - 0-11之间的整数，做为date对象的月份
+                day - 1-31之间的整数，做为date对象的天数
+                hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                minutes - 0-59之间的整数，做为date对象的分钟数
+                seconds - 0-59之间的整数，做为date对象的秒数
+                microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                var t1 = Date.UTC(2021,05,20,10,12,34); //建站时间
+                var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+                var diff = t2-t1;
+                var diffYears = Math.floor(diff/years);
+                var diffDays = Math.floor((diff/days)-diffYears*365);
+                var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+                var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+                var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+                document.getElementById("sitetime").innerHTML=" 本站已运行 "+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分 "+diffSeconds+" 秒";
+        }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+        siteTime();
+</script>
 
 
 </footer>
