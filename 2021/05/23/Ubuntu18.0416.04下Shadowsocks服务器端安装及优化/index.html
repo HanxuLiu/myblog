@@ -1,0 +1,693 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="刘跑跑">
+  <meta name="keywords" content="">
+  
+  <title>Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化 - 跑跑的小屋</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"❤️","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"8a946a1def132e65d9d52d54259d6e20","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"7VeBoWn9FJSeYf5hdAUySw0Y-gzGzoHsz","app_key":"uPCSTewv3RMkVWCQ2jpIDOVp","server_url":"https://7vebown9.lc-cn-n1-shared.com"}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>跑跑的小屋</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                其他
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.cnblogs.com/liuhanxu">
+                    <i class="iconfont icon-rss-fill"></i>
+                    博客园
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.zhihu.com/people/liupaopao520">
+                    <i class="iconfont icon-zhihu-fill"></i>
+                    知乎
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/HanxuLiu">
+                    <i class="iconfont icon-github-fill"></i>
+                    GitHub
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://gitee.com/liuhanxu">
+                    <i class="iconfont icon-gitee-fill"></i>
+                    Gitee
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/page.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-23 22:16" pubdate>
+        2021年5月23日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Ubuntu18-04-16-04下Shadowsocks服务器端安装及优化"><a href="#Ubuntu18-04-16-04下Shadowsocks服务器端安装及优化" class="headerlink" title="Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化"></a>Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本教程旨在提供简明的Ubuntu 16.04下安装服务器端Shadowsocks。不同于Ubuntu 16.04之前的教程，本文抛弃initd，转而使用Ubuntu 16.04支持的Systemd管理Shadowsocks的启动与停止，显得更为便捷。优化部分包括BBR、TCP Fast Open以及吞吐量优化。</p>
+<p>本教程仅适用于Ubuntu 16.04及之后的版本，基于Python 3，支持IPv6。</p>
+<h2 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装<code>pip</code></h2><p>本教程使用Python 3为载体，因Python 3对应的包管理器<code>pip3</code>并未预装，首先安装<code>pip3</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install python3-pip<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h2><p>因Shadowsocks作者不再维护<code>pip</code>中的Shadowsocks（定格在了2.8.2），我们使用下面的命令来安装最新版的Shadowsocks：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip<br></code></pre></td></tr></table></figure>
+
+<p>安装完成后可以使用下面这个命令查看Shadowsocks版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ssserver --version<br></code></pre></td></tr></table></figure>
+
+<p>目前会显示“Shadowsocks 3.0.0”。</p>
+<h2 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><p>创建Shadowsocks配置文件所在文件夹：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo mkdir /etc/shadowsocks<br></code></pre></td></tr></table></figure>
+
+<p>然后创建配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/shadowsocks/config.json<br></code></pre></td></tr></table></figure>
+
+<p>复制粘贴如下内容（注意修改密码“password”）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;server&quot;</span>:<span class="hljs-string">&quot;::&quot;</span>,<br>    <span class="hljs-attr">&quot;server_port&quot;</span>:<span class="hljs-number">8388</span>,<br>    <span class="hljs-attr">&quot;local_address&quot;</span>: <span class="hljs-string">&quot;127.0.0.1&quot;</span>,<br>    <span class="hljs-attr">&quot;local_port&quot;</span>:<span class="hljs-number">1080</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>:<span class="hljs-string">&quot;mypassword&quot;</span>,<br>    <span class="hljs-attr">&quot;timeout&quot;</span>:<span class="hljs-number">300</span>,<br>    <span class="hljs-attr">&quot;method&quot;</span>:<span class="hljs-string">&quot;chacha20-ietf-poly1305&quot;</span>,<br>    <span class="hljs-attr">&quot;fast_open&quot;</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p><strong>添加配置信息多用户</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 多用户</span><br>&#123;<br>    <span class="hljs-string">&quot;server&quot;</span>:<span class="hljs-string">&quot;::&quot;</span>,<br>    <span class="hljs-string">&quot;local_address&quot;</span>:<span class="hljs-string">&quot;127.0.0.1&quot;</span>,<br>    <span class="hljs-string">&quot;local_port&quot;</span>:<span class="hljs-number">1080</span>,<br>  <span class="hljs-string">&quot;port_password&quot;</span>:&#123;<br>         <span class="hljs-string">&quot;8888&quot;</span>:<span class="hljs-string">&quot;123456789&quot;</span>,<br>         <span class="hljs-string">&quot;9999&quot;</span>:<span class="hljs-string">&quot;123456789&quot;</span><br>  &#125;,<br>    <span class="hljs-string">&quot;timeout&quot;</span>:<span class="hljs-number">300</span>,<br>    <span class="hljs-string">&quot;method&quot;</span>:<span class="hljs-string">&quot;aes-256-cfb&quot;</span>,<br>    <span class="hljs-string">&quot;fast_open&quot;</span>:<span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>添加配置信息单用户</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 单用户</span><br>&#123;<br>    <span class="hljs-string">&quot;server&quot;</span>:<span class="hljs-string">&quot;::&quot;</span>,<br>    <span class="hljs-string">&quot;server_port&quot;</span>:<span class="hljs-number">8388</span>,<br>    <span class="hljs-string">&quot;local_address&quot;</span>: <span class="hljs-string">&quot;127.0.0.1&quot;</span>,<br>    <span class="hljs-string">&quot;local_port&quot;</span>:<span class="hljs-number">1080</span>,<br>    <span class="hljs-string">&quot;password&quot;</span>:<span class="hljs-string">&quot;123456789&quot;</span>,<br>    <span class="hljs-string">&quot;timeout&quot;</span>:<span class="hljs-number">300</span>,<br>    <span class="hljs-string">&quot;method&quot;</span>:<span class="hljs-string">&quot;aes-256-cfb&quot;</span>,<br>    <span class="hljs-string">&quot;fast_open&quot;</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">server：Shadowsocks服务器地址 <br>server_port：Shadowsocks服务器端口 <br>local_address：   本地IP<br>local_port：本地端口 <br>password：Shadowsocks连接密码 <br>timeout：等待超时时间 <br>method：加密方式 <br><span class="hljs-attr">workers</span>:          工作线程数 <br>fast_open：       <span class="hljs-literal">true</span>或<span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="测试Shadowsocks配置"><a href="#测试Shadowsocks配置" class="headerlink" title="测试Shadowsocks配置"></a>测试Shadowsocks配置</h2><p>首先记录下服务器的IP地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ifconfig<br></code></pre></td></tr></table></figure>
+
+<p>找到IPv4地址（和IPv6地址），如我的<code>ifconfig</code>输出为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">eth0      Link encap:Ethernet  HWaddr 46:91:89:4e:c1:52<br>          inet addr:138.68.51.55  Bcast:138.68.63.255  Mask:255.255.240.0<br>          inet6 addr: fe80::4491:89ff:fe4e:c152/64 Scope:Link<br>          inet6 addr: 2604:a880:2:d0::3727:7001/64 Scope:Global<br>          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1<br>          RX packets:102667 errors:0 dropped:0 overruns:0 frame:0<br>          TX packets:7869 errors:0 dropped:0 overruns:0 carrier:0<br>          collisions:0 txqueuelen:1000<br>          RX bytes:151166937 (151.1 MB)  TX bytes:1151476 (1.1 MB)<br></code></pre></td></tr></table></figure>
+
+<p>所以我的IPv4地址是<code>138.68.51.55</code>，IPv6地址是<code>2604:a880:2:d0::3727:7001</code>。</p>
+<p>然后来测试下Shadowsocks能不能正常工作了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssserver -c /etc/shadowsocks/config.json<br></code></pre></td></tr></table></figure>
+
+<p>在Shadowsocks客户端添加服务器，如果你使用的是我提供的那个配置文件的话，地址填写你的<code>IPv4地址</code>或<code>IPv6地址</code>，端口号为<code>8388</code>，加密方法为<code>chacha20-ietf-poly1305</code>，密码为<code>你设置的密码</code>。然后设置客户端使用全局模式，浏览器登录Google试试应该能直接打开了。</p>
+<h2 id="配置Systemd管理Shadowsocks"><a href="#配置Systemd管理Shadowsocks" class="headerlink" title="配置Systemd管理Shadowsocks"></a>配置Systemd管理Shadowsocks</h2><p>新建Shadowsocks管理文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/systemd/system/shadowsocks-server.service<br></code></pre></td></tr></table></figure>
+
+<p>复制粘贴：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain">[Unit]<br>Description=Shadowsocks Server<br>After=network.target<br><br>[Service]<br>ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json<br>Restart=on-abort<br><br>[Install]<br>WantedBy=multi-user.target<br></code></pre></td></tr></table></figure>
+
+<p><code>Ctrl + O</code>保存文件，<code>Ctrl + X</code>退出。</p>
+<p>启动Shadowsocks：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start shadowsocks-server<br></code></pre></td></tr></table></figure>
+
+<p>设置开机启动Shadowsocks：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl <span class="hljs-built_in">enable</span> shadowsocks-server<br></code></pre></td></tr></table></figure>
+
+<p>至此，Shadowsock服务器端的基本配置已经全部完成了！</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>这部分属于进阶操作，在你使用Shadowsocks时感觉到延迟较大，或吞吐量较低时，可以考虑对服务器端进行优化。</p>
+<h3 id="开启BBR"><a href="#开启BBR" class="headerlink" title="开启BBR"></a>开启BBR</h3><p>BBR系Google最新开发的TCP拥塞控制算法，目前有着较好的带宽提升效果，甚至不比老牌的锐速差。</p>
+<h4 id="升级Linux内核"><a href="#升级Linux内核" class="headerlink" title="升级Linux内核"></a>升级Linux内核</h4><p>BBR在Linux kernel 4.9引入。首先检查服务器kernel版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">uname -r<br></code></pre></td></tr></table></figure>
+
+<p>如果其显示版本在4.9.0之下，则需要升级Linux内核，否则请忽略下文。</p>
+<h4 id="开启BBR-1"><a href="#开启BBR-1" class="headerlink" title="开启BBR"></a>开启BBR</h4><p>运行<code>lsmod | grep bbr</code>，如果结果中没有<code>tcp_bbr</code>，则先运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">modprobe tcp_bbr<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;tcp_bbr&quot;</span> &gt;&gt; /etc/modules-load.d/modules.conf<br></code></pre></td></tr></table></figure>
+
+<p>运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf<br></code></pre></td></tr></table></figure>
+
+<p>运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sysctl -p<br></code></pre></td></tr></table></figure>
+
+<p>保存生效。运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sysctl net.ipv4.tcp_available_congestion_control<br>sysctl net.ipv4.tcp_congestion_control<br></code></pre></td></tr></table></figure>
+
+<p>若均有<code>bbr</code>，则开启BBR成功。</p>
+<h3 id="优化吞吐量"><a href="#优化吞吐量" class="headerlink" title="优化吞吐量"></a>优化吞吐量</h3><p>新建配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/sysctl.d/local.conf<br></code></pre></td></tr></table></figure>
+
+<p>复制粘贴：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs plain"># max open files<br>fs.file-max = 51200<br># max read buffer<br>net.core.rmem_max = 67108864<br># max write buffer<br>net.core.wmem_max = 67108864<br># default read buffer<br>net.core.rmem_default = 65536<br># default write buffer<br>net.core.wmem_default = 65536<br># max processor input queue<br>net.core.netdev_max_backlog = 4096<br># max backlog<br>net.core.somaxconn = 4096<br><br># resist SYN flood attacks<br>net.ipv4.tcp_syncookies = 1<br># reuse timewait sockets when safe<br>net.ipv4.tcp_tw_reuse = 1<br># turn off fast timewait sockets recycling<br>net.ipv4.tcp_tw_recycle = 0<br># short FIN timeout<br>net.ipv4.tcp_fin_timeout = 30<br># short keepalive time<br>net.ipv4.tcp_keepalive_time = 1200<br># outbound port range<br>net.ipv4.ip_local_port_range = 10000 65000<br># max SYN backlog<br>net.ipv4.tcp_max_syn_backlog = 4096<br># max timewait sockets held by system simultaneously<br>net.ipv4.tcp_max_tw_buckets = 5000<br># turn on TCP Fast Open on both client and server side<br>net.ipv4.tcp_fastopen = 3<br># TCP receive buffer<br>net.ipv4.tcp_rmem = 4096 87380 67108864<br># TCP write buffer<br>net.ipv4.tcp_wmem = 4096 65536 67108864<br># turn on path MTU discovery<br>net.ipv4.tcp_mtu_probing = 1<br><br>net.ipv4.tcp_congestion_control = bbr<br></code></pre></td></tr></table></figure>
+
+<p>运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sysctl --system<br></code></pre></td></tr></table></figure>
+
+<p>编辑之前的shadowsocks-server.service文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/systemd/system/shadowsocks-server.service<br></code></pre></td></tr></table></figure>
+
+<p>在<code>ExecStart</code>前插入一行，内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ExecStartPre=/bin/sh -c &#x27;ulimit -n 51200&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>即修改后的shadowsocks-server.service内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs plain">[Unit]<br>Description=Shadowsocks Server<br>After=network.target<br><br>[Service]<br>ExecStartPre=/bin/sh -c &#x27;ulimit -n 51200&#x27;<br>ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/config.json<br>Restart=on-abort<br><br>[Install]<br>WantedBy=multi-user.target<br></code></pre></td></tr></table></figure>
+
+<p><code>Ctrl + O</code>保存文件，<code>Ctrl + X</code>退出。</p>
+<p>重载shadowsocks-server.service：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl daemon-reload<br></code></pre></td></tr></table></figure>
+
+<p>重启Shadowsocks：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl restart shadowsocks-server<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="开启TCP-Fast-Open"><a href="#开启TCP-Fast-Open" class="headerlink" title="开启TCP Fast Open"></a>开启TCP Fast Open</h3><p>TCP Fast Open可以降低Shadowsocks服务器和客户端的延迟。实际上在上一步已经开启了TCP Fast Open，现在只需要在Shadowsocks配置中启用TCP Fast Open。</p>
+<p>编辑config.json：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/shadowsocks/config.json<br></code></pre></td></tr></table></figure>
+
+<p>将<code>fast_open</code>的值由<code>false</code>修改为<code>true</code>。<code>Ctrl + O</code>保存文件，<code>Ctrl + X</code>退出。</p>
+<p>重启Shadowsocks：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl restart shadowsocks-server<br></code></pre></td></tr></table></figure>
+
+<p>注意：TCP Fast Open同时需要客户端的支持，即客户端Linux内核版本为3.7.1及以上；你可以在Shadowsocks客户端中启用TCP Fast Open。</p>
+<p>至此，Shadowsock服务器端的优化已经全部完成了！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Shadowsocks/">Shadowsocks</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/23/Ubuntu%E6%9B%B4%E6%96%B0SS%E4%BB%A5%E6%94%AF%E6%8C%81%E6%96%B0%E7%9A%84%E5%8A%A0%E5%AF%86%E6%96%B9%E6%B3%95/">
+                        <span class="hidden-mobile">Ubuntu更新SS以支持新的加密方法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qjBgCyVjG8grj10lG1U7MT04-gzGzoHsz","appKey":"f4ixfRSd6PzI51T4TjTBiVNA","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qjbgcyvj.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          { el: "#valine", path: window.location.pathname }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+<div> <span id="jinrishici-sentence">正在加载今日诗词....</span> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> </div>
+<div style="font-size: 0.85rem; margin: 0.25rem 0;"> <i class="iconfont icon-twitter-fill"></i> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            <i class="iconfont icon-codeforces"></i> 总访问量 
+            <span id="leancloud-site-pv"></span>
+             次&nbsp;&nbsp;
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            <i class="iconfont icon-users"></i> 总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      jQuery('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      jQuery('#modalSearch').on('shown.bs.modal', function() {
+        jQuery('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8a946a1def132e65d9d52d54259d6e20";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+</body>
+</html>
