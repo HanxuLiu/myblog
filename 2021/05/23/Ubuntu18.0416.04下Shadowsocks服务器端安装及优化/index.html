@@ -284,7 +284,7 @@
             <h1 style="display: none">Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化</h1>
             
             <div class="markdown-body">
-              <h1 id="Ubuntu18-04-16-04下Shadowsocks服务器端安装及优化"><a href="#Ubuntu18-04-16-04下Shadowsocks服务器端安装及优化" class="headerlink" title="Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化"></a>Ubuntu18.04/16.04下Shadowsocks服务器端安装及优化</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本教程旨在提供简明的Ubuntu 16.04下安装服务器端Shadowsocks。不同于Ubuntu 16.04之前的教程，本文抛弃initd，转而使用Ubuntu 16.04支持的Systemd管理Shadowsocks的启动与停止，显得更为便捷。优化部分包括BBR、TCP Fast Open以及吞吐量优化。</p>
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本教程旨在提供简明的Ubuntu 16.04下安装服务器端Shadowsocks。不同于Ubuntu 16.04之前的教程，本文抛弃initd，转而使用Ubuntu 16.04支持的Systemd管理Shadowsocks的启动与停止，显得更为便捷。优化部分包括BBR、TCP Fast Open以及吞吐量优化。</p>
 <p>本教程仅适用于Ubuntu 16.04及之后的版本，基于Python 3，支持IPv6。</p>
 <h2 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装<code>pip</code></h2><p>本教程使用Python 3为载体，因Python 3对应的包管理器<code>pip3</code>并未预装，首先安装<code>pip3</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install python3-pip<br></code></pre></td></tr></table></figure>
