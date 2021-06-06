@@ -230,6 +230,136 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/06/06/Vim-vim%E4%B8%AD%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%88%96%E5%8F%96%E6%B6%88%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/" target="_self">
+          vim中可视模式下添加或取消多行注释
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/06/Vim-vim%E4%B8%AD%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%88%96%E5%8F%96%E6%B6%88%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/" target="_self">
+          
+          
+            
+          
+          vim中可视模式下多行添加注释和取消注释正常模式 –&gt; 可视模式：
+
+
+
+指令
+描述
+
+
+
+v
+可视模式
+
+
+ctrl+v
+可视块模式
+
+
+shift+v
+可视行模式
+
+
+可视块模式有一个非常实用的作用：选多行进行注释
+多行添加注释：- 光标置于行首- ctrl + v，进入可视块模式- 移动光标，选中的位置会有高亮显示- shift + i，进入 insert 模式- 输入//- esc
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-06 15:46" pubdate>
+              2021-06-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vim%E6%8A%80%E5%B7%A7/">Vim技巧</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vim/">Vim</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/06/gcc-%E6%9F%A5%E7%9C%8Bgcc%E7%9A%84%E5%AE%8F%E5%AE%9A%E4%B9%89/" target="_self">
+          查看gcc的宏定义
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/06/gcc-%E6%9F%A5%E7%9C%8Bgcc%E7%9A%84%E5%AE%8F%E5%AE%9A%E4%B9%89/" target="_self">
+          
+          
+            
+          
+          1、查看gcc默认的内置宏定义1gcc -dM -E - &lt; /dev/null
+
+或者
+1gcc -dM -E helloworld.c
+
+ helloworld.c为用户随意编写的c测试用例，随意拿个c程序就行。
+-E 预处理后即停止，不进行编译。预处理后的代码送往标准输出。GCC忽略任何不需要预处理的输入文件。
+-dM 告诉预处理器输出有效的宏定义列表(预处理结束时仍然有效的宏定义)。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-06 15:45" pubdate>
+              2021-06-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/gcc/">gcc</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/05/27/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" target="_self">
           学习笔记1：单片机最小系统设计
         </a>

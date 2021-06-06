@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>vim中可视模式下添加或取消多行注释</title>
+    <link href="/2021/06/06/Vim-vim%E4%B8%AD%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%88%96%E5%8F%96%E6%B6%88%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/"/>
+    <url>/2021/06/06/Vim-vim%E4%B8%AD%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%88%96%E5%8F%96%E6%B6%88%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/</url>
+    
+    <content type="html"><![CDATA[<h2 id="vim中可视模式下多行添加注释和取消注释"><a href="#vim中可视模式下多行添加注释和取消注释" class="headerlink" title="vim中可视模式下多行添加注释和取消注释"></a>vim中可视模式下多行添加注释和取消注释</h2><p><strong>正常模式 –&gt; 可视模式：</strong></p><table><thead><tr><th>指令</th><th>描述</th></tr></thead><tbody><tr><td>v</td><td>可视模式</td></tr><tr><td>ctrl+v</td><td>可视块模式</td></tr><tr><td>shift+v</td><td>可视行模式</td></tr></tbody></table><p>可视块模式有一个非常实用的作用：选多行进行注释</p><h2 id="多行添加注释："><a href="#多行添加注释：" class="headerlink" title="多行添加注释："></a>多行添加注释：</h2><p>- 光标置于行首<br>- <code>ctrl + v</code>，进入可视块模式<br>- 移动光标，选中的位置会有高亮显示<br>- <code>shift + i</code>，进入 insert 模式<br>- 输入<code>//</code><br>- <code>esc</code></p><h2 id="多行取消注释："><a href="#多行取消注释：" class="headerlink" title="多行取消注释："></a>多行取消注释：</h2><p>- 光标置于行首<br>- <code>ctrl + v</code>，进入可视块模式<br>- 移动光标，选中的位置会有高亮显示<br>- 按<code>d</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Vim技巧</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>查看gcc的宏定义</title>
+    <link href="/2021/06/06/gcc-%E6%9F%A5%E7%9C%8Bgcc%E7%9A%84%E5%AE%8F%E5%AE%9A%E4%B9%89/"/>
+    <url>/2021/06/06/gcc-%E6%9F%A5%E7%9C%8Bgcc%E7%9A%84%E5%AE%8F%E5%AE%9A%E4%B9%89/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、查看gcc默认的内置宏定义"><a href="#1、查看gcc默认的内置宏定义" class="headerlink" title="1、查看gcc默认的内置宏定义"></a>1、查看gcc默认的内置宏定义</h2><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">gcc -dM -E - &lt; <span class="hljs-regexp">/dev/</span><span class="hljs-literal">null</span><br></code></pre></td></tr></table></figure><p>或者</p><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">gcc -dM -E helloworld.<span class="hljs-keyword">c</span><br></code></pre></td></tr></table></figure><p> helloworld.c为用户随意编写的c测试用例，随意拿个c程序就行。</p><p>-E 预处理后即停止，不进行编译。预处理后的代码送往标准输出。GCC忽略任何不需要预处理的输入文件。</p><p>-dM 告诉预处理器输出有效的宏定义列表(预处理结束时仍然有效的宏定义)。该选项需结合`-E’选项使用。</p><h2 id="2、打开用户自行设置的宏定义"><a href="#2、打开用户自行设置的宏定义" class="headerlink" title="2、打开用户自行设置的宏定义"></a>2、打开用户自行设置的宏定义</h2><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">gcc -DDEBUG helloworld.<span class="hljs-keyword">c</span><br></code></pre></td></tr></table></figure><p>helloworld.c文件中的宏定义DEBUG如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DEBUG is defined ! &quot;</span>);<br><span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DEBUG is not defined ! &quot;</span>);<br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span><br></code></pre></td></tr></table></figure><h2 id="总结：gcc内部默认的宏定义-用户自行设置的宏定义-所有的宏定义"><a href="#总结：gcc内部默认的宏定义-用户自行设置的宏定义-所有的宏定义" class="headerlink" title="总结：gcc内部默认的宏定义+用户自行设置的宏定义=所有的宏定义"></a>总结：gcc内部默认的宏定义+用户自行设置的宏定义=所有的宏定义</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>编译器</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>gcc</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>学习笔记1：单片机最小系统设计</title>
     <link href="/2021/05/27/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
     <url>/2021/05/27/%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
