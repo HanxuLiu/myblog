@@ -18,7 +18,7 @@
   <meta name="author" content="刘跑跑">
   <meta name="keywords" content="">
   
-  <title>markdown学习笔记1 - 跑跑的小屋</title>
+  <title>TCP 协议简介 - 跑跑的小屋</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="markdown学习笔记1">
+            <span class="h2" id="subtitle" title="TCP 协议简介">
               
             </span>
 
@@ -221,8 +221,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-08 14:47" pubdate>
-        2021年6月8日 下午
+      <time datetime="2021-06-10 15:47" pubdate>
+        2021年6月10日 下午
       </time>
     </span>
   
@@ -233,7 +233,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      2.5k 字
     </span>
   
 
@@ -243,7 +243,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      26
        分钟
     </span>
   
@@ -281,252 +281,83 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">markdown学习笔记1</h1>
+            <h1 style="display: none">TCP 协议简介</h1>
             
             <div class="markdown-body">
-              <h1 id="markdown学习笔记1"><a href="#markdown学习笔记1" class="headerlink" title="markdown学习笔记1"></a>markdown学习笔记1</h1><h2 id="1、markdown是什么？"><a href="#1、markdown是什么？" class="headerlink" title="1、markdown是什么？"></a>1、markdown是什么？</h2><ul>
-<li>Markdown是一种轻量级标记语言，2004 由约翰·格鲁伯（英语：John Gruber）创建，通过使用易读易写的纯文本格式编写文档，让作者把更多精力放在文章内容，不再为排版浪费时间。Markdown文档可以导出为HTML、Word、图像、PDF、Epub 等多种格式。</li>
-</ul>
-<h2 id="2、标题、换行、字体"><a href="#2、标题、换行、字体" class="headerlink" title="2、标题、换行、字体"></a>2、标题、换行、字体</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
-<li>使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。</li>
-</ul>
-<blockquote>
-<p>#一级标题<br>##二级标题<br>###三级标题<br>####四级标题<br>#####五级标题<br>######六级标题  </p>
-</blockquote>
-<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><ul>
-<li>段落的换行是使用两个以上空格再加上回车。</li>
-<li>或者使用一个空行来表示新的段落段落。</li>
-</ul>
-<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><blockquote>
-<p>* 斜体文本 *<br>**粗体文本**<br>***粗斜体文本***  </p>
-</blockquote>
-<blockquote>
-<p><em>斜体文本</em><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em>  </p>
-</blockquote>
-<h2 id="3、分割线、删除线、下划线"><a href="#3、分割线、删除线、下划线" class="headerlink" title="3、分割线、删除线、下划线"></a>3、分割线、删除线、下划线</h2><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><ul>
-<li>在一行中用三个以上的星号、减号、底线来建立一个分隔线<blockquote>
-<p>-–<br>分割线  </p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<hr>
-<p>分割线  </p>
-</blockquote>
-<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><ul>
-<li>在文字的两端加上两个波浪线表示删除线</li>
-</ul>
-<blockquote>
-<p>~~删除线~~</p>
-</blockquote>
-<blockquote>
-<p><del>删除线</del>  </p>
-</blockquote>
-<h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><ul>
-<li>通过 HTML 的 &lt;u&gt; &lt;/u&gt;标签来表示下划线<blockquote>
-<p>&lt;u&gt; 下划线 &lt;/u&gt;</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p><u> 下划线 </u></p>
-</blockquote>
-<h2 id="4、有序列表、无序列表、列表嵌套"><a href="#4、有序列表、无序列表、列表嵌套" class="headerlink" title="4、有序列表、无序列表、列表嵌套"></a>4、有序列表、无序列表、列表嵌套</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><ul>
-<li>无序列表使用星号*、加号+或是减号-  </li>
-</ul>
-<blockquote>
-<p>- 第一项<br>- 第二项<br>- 第三项  </p>
-</blockquote>
+              <h1 id="TCP-协议简介"><a href="#TCP-协议简介" class="headerlink" title="TCP 协议简介"></a>TCP 协议简介</h1><p>作者： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/06/">2017 年 6 月 8 日</a></p>
+<p>TCP 是互联网核心协议之一，本文介绍它的基础知识。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060801.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="一、TCP-协议的作用"><a href="#一、TCP-协议的作用" class="headerlink" title="一、TCP 协议的作用"></a>一、TCP 协议的作用</h2><p>互联网由<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html">一整套协议</a>构成。TCP 只是其中的一层，有着自己的分工。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060804.png" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：TCP 是以太网协议和 IP 协议的上层协议，也是应用层协议的下层协议。）</p>
+<p>最底层的以太网协议（Ethernet）规定了电子信号如何组成数据包（packet），解决了子网内部的点对点通信。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060802.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：以太网协议解决了局域网的点对点通信。）</p>
+<p>但是，以太网协议不能解决多个局域网如何互通，这由 IP 协议解决。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060803.png" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：IP 协议可以连接多个局域网。）</p>
+<p>IP 协议定义了一套自己的地址规则，称为 IP 地址。它实现了路由功能，允许某个局域网的 A 主机，向另一个局域网的 B 主机发送消息。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060805.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：路由器就是基于 IP 协议。局域网之间要靠路由器连接。）</p>
+<p>路由的原理很简单。市场上所有的路由器，背后都有很多网口，要接入多根网线。路由器内部有一张路由表，规定了 A 段 IP 地址走出口一，B 段地址走出口二，……通过这套”指路牌”，实现了数据包的转发。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060806.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：本机的路由表注明了不同 IP 目的地的数据包，要发送到哪一个网口（interface）。）</p>
+<p>IP 协议只是一个地址协议，并不保证数据包的完整。如果路由器丢包（比如缓存满了，新进来的数据包就会丢失），就需要发现丢了哪一个包，以及如何重新发送这个包。这就要依靠 TCP 协议。</p>
+<p>简单说，TCP 协议的作用是，保证数据通信的完整性和可靠性，防止丢包。</p>
+<h2 id="二、TCP-数据包的大小"><a href="#二、TCP-数据包的大小" class="headerlink" title="二、TCP 数据包的大小"></a>二、TCP 数据包的大小</h2><p>以太网数据包（packet）的大小是固定的，最初是 1518 字节，后来增加到 1522 字节。其中， 1500 字节是负载（payload），22 字节是头信息（head）。</p>
+<p>IP 数据包在以太网数据包的负载里面，它也有自己的头信息，最少需要 20 字节，所以 IP 数据包的负载最多为 1480 字节。</p>
+<p><img src="/blogimg/asset/201205/bg2012052913.png" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：IP 数据包在以太网数据包里面，TCP 数据包在 IP 数据包里面。）</p>
+<p>TCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要 20 字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为 1400 字节左右。</p>
+<p>因此，一条 1500 字节的信息需要两个 TCP 数据包。HTTP/2 协议的一大改进， 就是压缩 HTTP 协议的头信息，使得一个 HTTP 请求可以放在一个 TCP 数据包里面，而不是分成多个，这样就提高了速度。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg20170060810.png" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：以太网数据包的负载是 1500 字节，TCP 数据包的负载在 1400 字节左右。）</p>
+<h2 id="三、TCP-数据包的编号（SEQ）"><a href="#三、TCP-数据包的编号（SEQ）" class="headerlink" title="三、TCP 数据包的编号（SEQ）"></a>三、TCP 数据包的编号（SEQ）</h2><p>一个包 1400 字节，那么一次性发送大量数据，就必须分成多个包。比如，一个 10MB 的文件，需要发送 7100 多个包。</p>
+<p>发送的时候，TCP 协议为每个包编号（sequence number，简称 SEQ），以便接收的一方按照顺序还原。万一发生丢包，也可以知道丢失的是哪一个包。</p>
+<p>第一个包的编号是一个随机数。为了便于理解，这里就把它称为 1 号包。假定这个包的负载长度是 100 字节，那么可以推算出下一个包的编号应该是 101。这就是说，每个数据包都可以得到两个编号：自身的编号，以及下一个包的编号。接收方由此知道，应该按照什么顺序将它们还原成原始文件。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060807.png" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：当前包的编号是 45943，下一个数据包的编号是 46183，由此可知，这个包的负载是 240 字节。）</p>
+<h2 id="四、TCP-数据包的组装"><a href="#四、TCP-数据包的组装" class="headerlink" title="四、TCP 数据包的组装"></a>四、TCP 数据包的组装</h2><p>收到 TCP 数据包以后，组装还原是操作系统完成的。应用程序不会直接处理 TCP 数据包。</p>
+<p>对于应用程序来说，不用关心数据通信的细节。除非线路异常，收到的总是完整的数据。应用程序需要的数据放在 TCP 数据包里面，有自己的格式（比如 HTTP 协议）。</p>
+<p>TCP 并没有提供任何机制，表示原始文件的大小，这由应用层的协议来规定。比如，HTTP 协议就有一个头信息<code>Content-Length</code>，表示信息体的大小。对于操作系统来说，就是持续地接收 TCP 数据包，将它们按照顺序组装好，一个包都不少。</p>
+<p>操作系统不会去处理 TCP 数据包里面的数据。一旦组装好 TCP 数据包，就把它们转交给应用程序。TCP 数据包里面有一个端口（port）参数，就是用来指定转交给监听该端口的应用程序。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060808.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：系统根据 TCP 数据包里面的端口，将组装好的数据转交给相应的应用程序。上图中，21 端口是 FTP 服务器，25 端口是 SMTP 服务，80 端口是 Web 服务器。）</p>
+<p>应用程序收到组装好的原始数据，以浏览器为例，就会根据 HTTP 协议的<code>Content-Length</code>字段正确读出一段段的数据。这也意味着，一次 TCP 通信可以包括多个 HTTP 通信。</p>
+<h2 id="五、慢启动和-ACK"><a href="#五、慢启动和-ACK" class="headerlink" title="五、慢启动和 ACK"></a>五、慢启动和 ACK</h2><p>服务器发送数据包，当然越快越好，最好一次性全发出去。但是，发得太快，就有可能丢包。带宽小、路由器过热、缓存溢出等许多因素都会导致丢包。线路不好的话，发得越快，丢得越多。</p>
+<p>最理想的状态是，在线路允许的情况下，达到最高速率。但是我们怎么知道，对方线路的理想速率是多少呢？答案就是慢慢试。</p>
+<p>TCP 协议为了做到效率与可靠性的统一，设计了一个慢启动（slow start）机制。开始的时候，发送得较慢，然后根据丢包的情况，调整速率：如果不丢包，就加快发送速度；如果丢包，就降低发送速度。</p>
+<p>Linux 内核里面<a target="_blank" rel="noopener" href="http://elixir.free-electrons.com/linux/v4.5/source/include/net/tcp.h#L220">设定</a>了（常量<code>TCP_INIT_CWND</code>），刚开始通信的时候，发送方一次性发送 10 个数据包，即”发送窗口”的大小为 10。然后停下来，等待接收方的确认，再继续发送。</p>
+<p>默认情况下，接收方每收到<a target="_blank" rel="noopener" href="https://serverfault.com/questions/348666/when-the-tcp-engine-decides-to-send-an-ack">两个</a> TCP 数据包，就要<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/3604882/1194049">发送</a>一个确认消息。”确认”的英语是 acknowledgement，所以这个确认消息就简称 ACK。</p>
+<p>ACK 携带两个信息。</p>
 <blockquote>
 <ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
+<li>期待要收到下一个数据包的编号</li>
+<li>接收方的接收窗口的剩余容量</li>
 </ul>
 </blockquote>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><ul>
-<li>有序列表使用数字并加上点号 . <blockquote>
-<p>1. 第一项<br>2. 第二项<br>3. 第三项  </p>
-</blockquote>
-</li>
+<p>发送方有了这两个信息，再加上自己已经发出的数据包的最新编号，就会推测出接收方大概的接收速度，从而降低或增加发送速率。这被称为”发送窗口”，这个窗口的大小是可变的。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060809.png" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：每个 ACK 都带有下一个数据包的编号，以及接收窗口的剩余容量。双方都会发送 ACK。）</p>
+<p>注意，由于 TCP 通信是双向的，所以双方都需要发送 ACK。两方的窗口大小，很可能是不一样的。而且 ACK 只是很简单的几个字段，通常与数据合并在一个数据包里面发送。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060812.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：上图一共 4 次通信。第一次通信，A 主机发给 B 主机的数据包编号是 1，长度是 100 字节，因此第二次通信 B 主机的 ACK 编号是 1 + 100 = 101，第三次通信 A 主机的数据包编号也是 101。同理，第二次通信 B 主机发给 A 主机的数据包编号是 1，长度是 200 字节，因此第三次通信 A 主机的 ACK 是 201，第四次通信 B 主机的数据包编号也是 201。）</p>
+<p>即使对于带宽很大、线路很好的连接，TCP 也总是从 10 个数据包开始慢慢试，过了一段时间以后，才达到最高的传输速率。这就是 TCP 的慢启动。</p>
+<h2 id="六、数据包的遗失处理"><a href="#六、数据包的遗失处理" class="headerlink" title="六、数据包的遗失处理"></a>六、数据包的遗失处理</h2><p>TCP 协议可以保证数据通信的完整性，这是怎么做到的？</p>
+<p>前面说过，每一个数据包都带有下一个数据包的编号。如果下一个数据包没有收到，那么 ACK 的编号就不会发生变化。</p>
+<p>举例来说，现在收到了 4 号包，但是没有收到 5 号包。ACK 就会记录，期待收到 5 号包。过了一段时间，5 号包收到了，那么下一轮 ACK 会更新编号。如果 5 号包还是没收到，但是收到了 6 号包或 7 号包，那么 ACK 里面的编号不会变化，总是显示 5 号包。这会导致大量重复内容的 ACK。</p>
+<p>如果发送方发现收到<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4233851/why-does-tcp-wait-for-three-duplicate-ack-before-fast-retransmit">三个</a>连续的重复 ACK，或者超时了还没有收到任何 ACK，就会确认丢包，即 5 号包遗失了，从而再次发送这个包。通过这种机制，TCP 保证了不会有数据包丢失。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2017/bg2017060811.png" srcset="/img/loading.gif" lazyload></p>
+<p>（图片说明：Host B 没有收到 100 号数据包，会连续发出相同的 ACK，触发 Host A 重发 100 号数据包。）</p>
+<h2 id="七、参考链接"><a href="#七、参考链接" class="headerlink" title="七、参考链接"></a>七、参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.destroyallsoftware.com/compendium/network-protocols">Network protocols for programmers who know at least one programming language</a></li>
 </ul>
-<blockquote>
-<ol>
-<li>第一项  </li>
-<li>第二项  </li>
-<li>第三项</li>
-</ol>
-</blockquote>
-<h3 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h3><ul>
-<li>在子列表中的选项前面添加四个空格</li>
+<p>（完）</p>
+<h3 id="文档信息"><a href="#文档信息" class="headerlink" title="文档信息"></a>文档信息</h3><ul>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享 3.0 许可证</a>）</li>
+<li>发表日期： 2017 年 6 月 8 日</li>
 </ul>
-<blockquote>
-<p>1. 第一项：<br>&emsp;    - 第一项嵌套的第一个元素<br>&emsp;    - 第一项嵌套的第二个元素<br>2. 第二项：<br>&emsp;    - 第二项嵌套的第一个元素<br>&emsp;    - 第二项嵌套的第二个元素  </p>
-</blockquote>
-<blockquote>
-<ol>
-<li>第一项：<ul>
-<li>第一项嵌套的第一个元素</li>
-<li>第一项嵌套的第二个元素</li>
-</ul>
-</li>
-<li>第二项：<ul>
-<li>第二项嵌套的第一个元素</li>
-<li>第二项嵌套的第二个元素</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<h2 id="6、区块显示"><a href="#6、区块显示" class="headerlink" title="6、区块显示"></a>6、区块显示</h2><h3 id="普通区块"><a href="#普通区块" class="headerlink" title="普通区块"></a>普通区块</h3><ul>
-<li>区块引用是在段落开头使用 &gt; 符号，后跟空格。<blockquote>
-<p>&gt; 第一行<br>&gt; 第二行<br>&gt; 第三行  </p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>第一行<br>第二行<br>第三行  </p>
-</blockquote>
-<h3 id="嵌套区块"><a href="#嵌套区块" class="headerlink" title="嵌套区块"></a>嵌套区块</h3><ul>
-<li>区块可以嵌套，一个 &gt; 符号是最外层，两个 &gt; 符号是第一层嵌套，以此类推。<blockquote>
-<p>&gt; 第一行<br>&gt;&gt; 第二行<br>&gt;&gt;&gt; 第三行  </p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>第一行  </p>
-<blockquote>
-<p>第二行  </p>
-<blockquote>
-<p>第三行  </p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="区块加入列表"><a href="#区块加入列表" class="headerlink" title="区块加入列表"></a>区块加入列表</h3><blockquote>
-<p>区块中使用列表</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-</ol>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-</blockquote>
-<h3 id="列表加入区块"><a href="#列表加入区块" class="headerlink" title="列表加入区块"></a>列表加入区块</h3><ul>
-<li>在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。</li>
-<li>第一项<blockquote>
-<p>第一行<br>第二行</p>
-</blockquote>
-</li>
-<li>第二项<blockquote>
-<p>第一行<br>第二行</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="7、代码显示"><a href="#7、代码显示" class="headerlink" title="7、代码显示"></a>7、代码显示</h2><ul>
-<li>代码可以用反引号把它包起来 `<blockquote>
-<p>`printf(“Hello World ! \n”);`  </p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p><code>printf(&quot;Hello World ! \n&quot;);</code></p>
-</blockquote>
-<ul>
-<li>以用 ``` 包裹一段代码，并指定一种语言（也可以不指定）  </li>
-</ul>
-<blockquote>
-<p>```c<br>printf(“Hello World ! \n”);<br>```</p>
-</blockquote>
-<blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World ! \n&quot;</span>);<br></code></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>用区块显示代码，代码区块使用 4 个空格或者一个制表符（Tab 键）  <blockquote>
-<p>for(int i=0;i&lt;100;i++)<br>  {<br>  &emsp; printf(“Hello World ! \n”);<br>  }</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="8、添加链接"><a href="#8、添加链接" class="headerlink" title="8、添加链接"></a>8、添加链接</h2><ul>
-<li>[链接名称](链接地址)</li>
-</ul>
-<blockquote>
-<p>[跑跑的小屋](liupaopao.top)  </p>
-</blockquote>
-<blockquote>
-<p><a href="liupaopao.top">跑跑的小屋</a></p>
-</blockquote>
-<ul>
-<li>&lt;链接地址&gt;</li>
-</ul>
-<blockquote>
-<p>&lt;<a target="_blank" rel="noopener" href="https://liupaopao.top&gt;/">https://liupaopao.top&gt;</a> </p>
-</blockquote>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://liupaopao.top/">https://liupaopao.top</a> </p>
-</blockquote>
-<h2 id="9、添加图片"><a href="#9、添加图片" class="headerlink" title="9、添加图片"></a>9、添加图片</h2><ul>
-<li>要添加图片，首先添加感叹号（!），然后紧跟着是方括号，方括号中可添加替代文本（alt text，即图片显示失败后显示此文本），最后跟着圆括号，圆括号中添加图片资源的路径或 URL。你可以选择在圆括号中的 URL 之后添加标题（即 title 属性）。</li>
-</ul>
-<blockquote>
-<p>![alt 属性文本](图片地址)<br>![alt 属性文本](图片地址 “可选标题”)</p>
-</blockquote>
-<blockquote>
-<p>![百度logo](<a target="_blank" rel="noopener" href="https://dss2.bdstatic.com/5bVYsj_p_tVS5dKfpU_Y_D3/res/r/image/2021-3-4/hao123%20logo.png">https://dss2.bdstatic.com/5bVYsj_p_tVS5dKfpU_Y_D3/res/r/image/2021-3-4/hao123%20logo.png</a> “baidu”)</p>
-</blockquote>
-<blockquote>
-<p><img src="https://dss2.bdstatic.com/5bVYsj_p_tVS5dKfpU_Y_D3/res/r/image/2021-3-4/hao123%20logo.png" srcset="/img/loading.gif" lazyload alt="百度logo" title="baidu"></p>
-</blockquote>
-<h2 id="10、添加表格"><a href="#10、添加表格" class="headerlink" title="10、添加表格"></a>10、添加表格</h2><ul>
-<li>使用三个或更多个连字符（—）来为每个列创建表头，并使用管道符（|）来分隔每个列。</li>
-</ul>
-<blockquote>
-<p>|  表头 | 表头  |<br>|  —  | —  |<br>| 单元格  | 单元格 |<br>| 单元格  | 单元格 |  </p>
-</blockquote>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-</blockquote>
-<ul>
-<li>可以设置表格的对齐方式：</li>
-</ul>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>对齐方式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-:</td>
-<td>设置内容和标题栏居右对齐</td>
-</tr>
-<tr>
-<td>:-</td>
-<td>设置内容和标题栏居左对齐</td>
-</tr>
-<tr>
-<td>:-:</td>
-<td>设置内容和标题栏居中对齐</td>
-</tr>
-</tbody></table>
-</blockquote>
 
             </div>
             <hr>
@@ -536,7 +367,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Markdown%E6%8A%80%E5%B7%A7/">Markdown技巧</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
                     
                   </div>
                 
@@ -544,7 +375,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Markdown/">Markdown</a>
+                      <a class="hover-with-bg" href="/tags/TCP-IP/">TCP/IP</a>
                     
                   </div>
                 
@@ -561,18 +392,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/10/%E9%98%AE%E4%B8%80%E5%B3%B0_%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">汇编语言入门教程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/06/Vim-vim%E4%B8%AD%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%B7%BB%E5%8A%A0%E6%88%96%E5%8F%96%E6%B6%88%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/">
-                        <span class="hidden-mobile">vim中可视模式下添加或取消多行注释</span>
+                      <a href="/2021/06/10/%E9%98%AE%E4%B8%80%E5%B3%B0_%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
+                        <span class="hidden-mobile">汇编语言入门教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
