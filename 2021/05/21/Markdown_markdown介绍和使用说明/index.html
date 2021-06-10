@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="刘跑跑">
+  <meta name="keywords" content="">
+  
+  <title>markdown介绍和使用说明 - 跑跑的小屋</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"❤️","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"8a946a1def132e65d9d52d54259d6e20","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"7VeBoWn9FJSeYf5hdAUySw0Y-gzGzoHsz","app_key":"uPCSTewv3RMkVWCQ2jpIDOVp","server_url":"https://7vebown9.lc-cn-n1-shared.com"}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>跑跑的小屋</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                其他
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.cnblogs.com/liuhanxu">
+                    <i class="iconfont icon-rss-fill"></i>
+                    博客园
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.zhihu.com/people/liupaopao520">
+                    <i class="iconfont icon-zhihu-fill"></i>
+                    知乎
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/HanxuLiu">
+                    <i class="iconfont icon-github-fill"></i>
+                    GitHub
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://gitee.com/liuhanxu">
+                    <i class="iconfont icon-gitee-fill"></i>
+                    Gitee
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/page.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="markdown介绍和使用说明">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-21 22:53" pubdate>
+        2021年5月21日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">markdown介绍和使用说明</h1>
+            
+            <div class="markdown-body">
+              <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/chen-shu-yi-21"><img src="https://pic1.zhimg.com/v2-9d019104896d4a8c9b94ba1ea53eadc9_xs.jpg?source=172ae18b" srcset="/img/loading.gif" lazyload alt="陈树义"></a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/chen-shu-yi-21">陈树义</a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/48510028"></a></p>
+<p>广州唯品会信息科技有限公司 Java开发工程师</p>
+<p>854 人赞同了该文章</p>
+<p>写博客、写文章比较多的人都知道 Markdown 是什么。</p>
+<blockquote>
+<p>Markdown 是一种轻量级标记语言，创始人为 John Gruber。它允许人们「使用易读易写的纯文本格式编写文档，然后转换成有效的 XHTML（或者 HTML）文档」。——维基百科</p>
+</blockquote>
+<p>简单地说，Markdown 与 HTML 语言一样，使用一些符号就代替样式。但是它比 HTML 语言更加简单。例如我想要实现标题样式，那么我可以这么做：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-169597b288329de5b969b341c5fed180_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="Markdown的本质"><a href="#Markdown的本质" class="headerlink" title="Markdown的本质"></a><strong>Markdown的本质</strong></h2><p>有些朋友会觉得，我用 Word 也可以实现同样的效果，为什么要使用 Markdown 呢？这个问题提得非常好，直戳问题本质。</p>
+<p>Word 等其他文本编辑工具虽然也能实现同样的效果，但是其功能太强大了。Word 还能改变字体颜色，还可以调节字体大小。这么强大的功能可以说是 Word 的优点，但也可以说是它的缺点。</p>
+<p>当功能多了，我们的注意力就会分散，我们就会去纠结：这个字体大小到底是 14 还是 16 好？我想强调这一句话，是要加粗还是标红？</p>
+<p>而 Markdown 的出现让我们不需要去纠结这些问题。<strong>Markdown 的本质是让我们回归到内容本身，注重文章本身的结构，而不是样式。</strong></p>
+<p>例如我们想要强调一句话，那么我们直接使用两个星号为其加粗，而不需要考虑是加粗还是标红（Markdown中只有黑色字体，没有其他颜色字体）。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-51ce4ea5fbdf997b5137476c14c18135_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>你也不需要关心字体大小问题，因为 Markdown 中字体大小都与结构有关，无法手动设置。一级标题字体大一些，二级标题小一些。我们只需要关注哪些是一级标题，哪些是二级标题。而不需要去纠结标题字体到底要设置多大。</p>
+<p><strong>Markdown 的本质是让我们回归内容本身。</strong> 当你明白这个道理的时候，你会明白为什么许多功能 Markdown 没有。</p>
+<h2 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a><strong>Markdown语法</strong></h2><p>原生的 Markdown 语法只包含了最基础的一些特性，例如：标题、加粗、斜体、段落、引用、超链接、图片、列表、代码块、水平分割线等。而一些自定义实现的编辑器，则有一些自定义的实现，例如：数学公式、TODO列表等。所以当你看到有一些语法在一个编辑可以用，但到另一个编辑器又用不了的时候，那么这个语法可能就不是通用的 Markdown 原生语法了。</p>
+<p>Markdown 语法非常简单，基本上只要多用几次就会了。下面简单介绍一些常用的 Markdown 语法。</p>
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a><strong>段落</strong></h3><p>Markdown 使用 <code>#</code> 号来表示段落。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-ddbecf1f0fa5a9a5e92ab996d8863d23_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="加粗、斜体、加粗斜体"><a href="#加粗、斜体、加粗斜体" class="headerlink" title="加粗、斜体、加粗斜体"></a><strong>加粗、斜体、加粗斜体</strong></h3><p>Markdown 使用一个星号表示斜体，两个星号表示加粗，三个星号表示加粗斜体。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-4b35d8ad9479b746fa9ea0f45c06a6c3_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a><strong>无序列表</strong></h3><p>使用星号或者中横线来表示无序列表，注意后面需要加个空格。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-dcc81e176f9d783776cc6adcd5098773_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a><strong>有序列表</strong></h3><p>使用<code>数字+.</code>来表示有序列表，后面同样需要价格空格。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-de41880f5807e6f9fdde99c2742038b7_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h3><p>Markdown 使用 <code>&gt;</code> 符号来表示引用。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-ade3a47093a0899a08074c7fc2c167c0_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><strong>超链接</strong></h3><p>Markdown 使用 <code>[]()</code> 来表示超链接，中括号表示链接文字，小括号表示链接地址。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-63cc3a2b007a0a449ac2d549d62c6277_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h3><p>图片的样式与超链接非常相似，只需在前面加个感叹号就可以了，即用<code>![]()</code>表示图片。其中中括号表示图片未加载时的提示文字，小括号表示图片地址。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-a059af56aadb832034c4057c0f136824_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a><strong>代码块</strong></h3><p>我们使用 ` 号来表示代码块引用。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-736e127b8d833dc85e0499f7f817c3a1_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="水平分割线"><a href="#水平分割线" class="headerlink" title="水平分割线"></a><strong>水平分割线</strong></h3><p>使用 <code>---</code> 来表示分割线</p>
+<p><img src="https://pic1.zhimg.com/80/v2-dc4df419d95a4bd2c05d8b7ab920fed8_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h3><p>使用一根竖线来分隔各个单元格，使用冒号来决定单元格的对齐方向。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-3222f96f11294e78f28bc1f949965557_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="Markdown使用场景"><a href="#Markdown使用场景" class="headerlink" title="Markdown使用场景"></a><strong>Markdown使用场景</strong></h2><p>目前越来越多的站点都支持了 Markdown 语法，例如：Github 等代码托管平台，简书、博客园等写作平台。因此，掌握好 Markdown 语法可以非常方便地在各个主流站点使用。</p>
+<h2 id="编辑工具"><a href="#编辑工具" class="headerlink" title="编辑工具"></a><strong>编辑工具</strong></h2><p>因为 Markdown 本质上是一个纯文本，所以任何能打开纯文本的东西都可以来编辑 Markdown。但如果你想要有预览功能，那么一款顺手的编辑功能还是有必要的。</p>
+<p>在 Windows 上比较不错的编辑器有：MarkdownPad、Typora。在 OSX 上比较不错的编辑器有：Mou、MacDown、MWeb。</p>
+<p>而我之前使用 MouDown 和 sublime 做简单的编辑，但是笔记等的就使用印象笔记写，而要发表的文章则使用 MWeb 编写。</p>
+<h2 id="兼容神器"><a href="#兼容神器" class="headerlink" title="兼容神器"></a><strong>兼容神器</strong></h2><p>使用了 Markdown 可以写出条理非常清晰的文章，文章结构特别清晰。但是对于一些老编辑器而言，例如：ATLASSIAN 的 WIKI 对于 Markdown 的支持就很弱。</p>
+<p>那么怎么办呢？</p>
+<p>其实很简单，因为老的编辑器基本都支持 HTML，所以我们可以将 Markdown 渲染后的 HTML 复制到老编辑器。</p>
+<p>我一般是在本地写好 Markdown 文章，之后直接复制到一个 Markdown 编辑器，然后复制对应的 HTML 文本到老编辑器中。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-394d2ecadb292765ac1d810cbe5672b3_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>之后点击一下蓝色的复制按钮，就可以复制渲染后的 HTML 文本，最后直接粘贴到老编辑器中就可以了。我用的 Markdown 编辑器是：**<a href="https://link.zhihu.com/?target=https://mdnice.github.io/">https://mdnice.github.io/</a>**，样式非常漂亮。</p>
+<h2 id="进阶应用"><a href="#进阶应用" class="headerlink" title="进阶应用"></a><strong>进阶应用</strong></h2><p>当你学会使用 Markdown 之后，你会发现 Markdown 还有更多好玩的地方。例如：开源的 gitbook 就可以教你把一个个 Markdown 文件组织起来，弄成一本电子书。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-cdc7ada790a4473145b3c1207a3f8495_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>具体如何操作，可以参考这里：**<a href="https://link.zhihu.com/?target=https://github.com/chenyurong/gitbook-notebook">https://github.com/chenyurong/g</a>**</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Markdown/">Markdown</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Markdown/">Markdown</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/23/PAC%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PAC模式和全局代理模式的区别</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/21/Markdown_Typora+Picgo+Gitee%E6%9E%84%E5%BB%BA%E7%BD%91%E7%BB%9C%E5%9B%BE%E5%BA%8A%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">Typora+Picgo+Gitee构建网络图床笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qjBgCyVjG8grj10lG1U7MT04-gzGzoHsz","appKey":"f4ixfRSd6PzI51T4TjTBiVNA","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qjbgcyvj.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          { el: "#valine", path: window.location.pathname }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+<div> <span id="jinrishici-sentence">正在加载今日诗词....</span> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> </div>
+<div style="font-size: 0.85rem; margin: 0.25rem 0;"> <i class="iconfont icon-twitter-fill"></i> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            <i class="iconfont icon-codeforces"></i> 总访问量 
+            <span id="leancloud-site-pv"></span>
+             次&nbsp;&nbsp;
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            <i class="iconfont icon-users"></i> 总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      jQuery('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      jQuery('#modalSearch').on('shown.bs.modal', function() {
+        jQuery('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8a946a1def132e65d9d52d54259d6e20";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+</body>
+</html>

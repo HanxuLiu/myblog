@@ -18,7 +18,7 @@
   <meta name="author" content="刘跑跑">
   <meta name="keywords" content="">
   
-  <title>markdown介绍和使用说明 - 跑跑的小屋</title>
+  <title>计算机是如何启动的？ - 跑跑的小屋</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="markdown介绍和使用说明">
+            <span class="h2" id="subtitle" title="计算机是如何启动的？">
               
             </span>
 
@@ -221,8 +221,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-21 22:53" pubdate>
-        2021年5月21日 晚上
+      <time datetime="2021-06-10 18:00" pubdate>
+        2021年6月10日 晚上
       </time>
     </span>
   
@@ -233,7 +233,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      2.1k 字
     </span>
   
 
@@ -243,7 +243,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      22
        分钟
     </span>
   
@@ -281,62 +281,88 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">markdown介绍和使用说明</h1>
+            <h1 style="display: none">计算机是如何启动的？</h1>
             
             <div class="markdown-body">
-              <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/chen-shu-yi-21"><img src="https://pic1.zhimg.com/v2-9d019104896d4a8c9b94ba1ea53eadc9_xs.jpg?source=172ae18b" srcset="/img/loading.gif" lazyload alt="陈树义"></a></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/chen-shu-yi-21">陈树义</a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/48510028"></a></p>
-<p>广州唯品会信息科技有限公司 Java开发工程师</p>
-<p>854 人赞同了该文章</p>
-<p>写博客、写文章比较多的人都知道 Markdown 是什么。</p>
+              <h1 id="计算机是如何启动的？"><a href="#计算机是如何启动的？" class="headerlink" title="计算机是如何启动的？"></a>计算机是如何启动的？</h1><p>作者： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/02/">2013 年 2 月 16 日</a></p>
+<p>从打开电源到开始操作，计算机的启动是一个非常复杂的过程。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201302/bg2013021501.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>我一直搞不清楚，这个过程到底是怎么回事，只看见屏幕快速滚动各种提示…… 这几天，我查了一些资料，试图搞懂它。下面就是我整理的笔记。</p>
+<p><strong>零、boot 的含义</strong></p>
+<p>先问一个问题，”启动”用英语怎么说？</p>
+<p>回答是 boot。可是，boot 原来的意思是靴子，”启动”与靴子有什么关系呢？ 原来，这里的 boot 是 bootstrap（鞋带）的缩写，它来自一句谚语：</p>
 <blockquote>
-<p>Markdown 是一种轻量级标记语言，创始人为 John Gruber。它允许人们「使用易读易写的纯文本格式编写文档，然后转换成有效的 XHTML（或者 HTML）文档」。——维基百科</p>
+<p>“pull oneself up by one’s bootstraps”</p>
 </blockquote>
-<p>简单地说，Markdown 与 HTML 语言一样，使用一些符号就代替样式。但是它比 HTML 语言更加简单。例如我想要实现标题样式，那么我可以这么做：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-169597b288329de5b969b341c5fed180_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="Markdown的本质"><a href="#Markdown的本质" class="headerlink" title="Markdown的本质"></a><strong>Markdown的本质</strong></h2><p>有些朋友会觉得，我用 Word 也可以实现同样的效果，为什么要使用 Markdown 呢？这个问题提得非常好，直戳问题本质。</p>
-<p>Word 等其他文本编辑工具虽然也能实现同样的效果，但是其功能太强大了。Word 还能改变字体颜色，还可以调节字体大小。这么强大的功能可以说是 Word 的优点，但也可以说是它的缺点。</p>
-<p>当功能多了，我们的注意力就会分散，我们就会去纠结：这个字体大小到底是 14 还是 16 好？我想强调这一句话，是要加粗还是标红？</p>
-<p>而 Markdown 的出现让我们不需要去纠结这些问题。<strong>Markdown 的本质是让我们回归到内容本身，注重文章本身的结构，而不是样式。</strong></p>
-<p>例如我们想要强调一句话，那么我们直接使用两个星号为其加粗，而不需要考虑是加粗还是标红（Markdown中只有黑色字体，没有其他颜色字体）。</p>
-<p><img src="https://pic2.zhimg.com/80/v2-51ce4ea5fbdf997b5137476c14c18135_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>你也不需要关心字体大小问题，因为 Markdown 中字体大小都与结构有关，无法手动设置。一级标题字体大一些，二级标题小一些。我们只需要关注哪些是一级标题，哪些是二级标题。而不需要去纠结标题字体到底要设置多大。</p>
-<p><strong>Markdown 的本质是让我们回归内容本身。</strong> 当你明白这个道理的时候，你会明白为什么许多功能 Markdown 没有。</p>
-<h2 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a><strong>Markdown语法</strong></h2><p>原生的 Markdown 语法只包含了最基础的一些特性，例如：标题、加粗、斜体、段落、引用、超链接、图片、列表、代码块、水平分割线等。而一些自定义实现的编辑器，则有一些自定义的实现，例如：数学公式、TODO列表等。所以当你看到有一些语法在一个编辑可以用，但到另一个编辑器又用不了的时候，那么这个语法可能就不是通用的 Markdown 原生语法了。</p>
-<p>Markdown 语法非常简单，基本上只要多用几次就会了。下面简单介绍一些常用的 Markdown 语法。</p>
-<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a><strong>段落</strong></h3><p>Markdown 使用 <code>#</code> 号来表示段落。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-ddbecf1f0fa5a9a5e92ab996d8863d23_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="加粗、斜体、加粗斜体"><a href="#加粗、斜体、加粗斜体" class="headerlink" title="加粗、斜体、加粗斜体"></a><strong>加粗、斜体、加粗斜体</strong></h3><p>Markdown 使用一个星号表示斜体，两个星号表示加粗，三个星号表示加粗斜体。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-4b35d8ad9479b746fa9ea0f45c06a6c3_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a><strong>无序列表</strong></h3><p>使用星号或者中横线来表示无序列表，注意后面需要加个空格。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-dcc81e176f9d783776cc6adcd5098773_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a><strong>有序列表</strong></h3><p>使用<code>数字+.</code>来表示有序列表，后面同样需要价格空格。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-de41880f5807e6f9fdde99c2742038b7_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h3><p>Markdown 使用 <code>&gt;</code> 符号来表示引用。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-ade3a47093a0899a08074c7fc2c167c0_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><strong>超链接</strong></h3><p>Markdown 使用 <code>[]()</code> 来表示超链接，中括号表示链接文字，小括号表示链接地址。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-63cc3a2b007a0a449ac2d549d62c6277_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h3><p>图片的样式与超链接非常相似，只需在前面加个感叹号就可以了，即用<code>![]()</code>表示图片。其中中括号表示图片未加载时的提示文字，小括号表示图片地址。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-a059af56aadb832034c4057c0f136824_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a><strong>代码块</strong></h3><p>我们使用 ` 号来表示代码块引用。</p>
-<p><img src="https://pic2.zhimg.com/80/v2-736e127b8d833dc85e0499f7f817c3a1_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="水平分割线"><a href="#水平分割线" class="headerlink" title="水平分割线"></a><strong>水平分割线</strong></h3><p>使用 <code>---</code> 来表示分割线</p>
-<p><img src="https://pic1.zhimg.com/80/v2-dc4df419d95a4bd2c05d8b7ab920fed8_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h3><p>使用一根竖线来分隔各个单元格，使用冒号来决定单元格的对齐方向。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-3222f96f11294e78f28bc1f949965557_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="Markdown使用场景"><a href="#Markdown使用场景" class="headerlink" title="Markdown使用场景"></a><strong>Markdown使用场景</strong></h2><p>目前越来越多的站点都支持了 Markdown 语法，例如：Github 等代码托管平台，简书、博客园等写作平台。因此，掌握好 Markdown 语法可以非常方便地在各个主流站点使用。</p>
-<h2 id="编辑工具"><a href="#编辑工具" class="headerlink" title="编辑工具"></a><strong>编辑工具</strong></h2><p>因为 Markdown 本质上是一个纯文本，所以任何能打开纯文本的东西都可以来编辑 Markdown。但如果你想要有预览功能，那么一款顺手的编辑功能还是有必要的。</p>
-<p>在 Windows 上比较不错的编辑器有：MarkdownPad、Typora。在 OSX 上比较不错的编辑器有：Mou、MacDown、MWeb。</p>
-<p>而我之前使用 MouDown 和 sublime 做简单的编辑，但是笔记等的就使用印象笔记写，而要发表的文章则使用 MWeb 编写。</p>
-<h2 id="兼容神器"><a href="#兼容神器" class="headerlink" title="兼容神器"></a><strong>兼容神器</strong></h2><p>使用了 Markdown 可以写出条理非常清晰的文章，文章结构特别清晰。但是对于一些老编辑器而言，例如：ATLASSIAN 的 WIKI 对于 Markdown 的支持就很弱。</p>
-<p>那么怎么办呢？</p>
-<p>其实很简单，因为老的编辑器基本都支持 HTML，所以我们可以将 Markdown 渲染后的 HTML 复制到老编辑器。</p>
-<p>我一般是在本地写好 Markdown 文章，之后直接复制到一个 Markdown 编辑器，然后复制对应的 HTML 文本到老编辑器中。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-394d2ecadb292765ac1d810cbe5672b3_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>之后点击一下蓝色的复制按钮，就可以复制渲染后的 HTML 文本，最后直接粘贴到老编辑器中就可以了。我用的 Markdown 编辑器是：**<a href="https://link.zhihu.com/?target=https://mdnice.github.io/">https://mdnice.github.io/</a>**，样式非常漂亮。</p>
-<h2 id="进阶应用"><a href="#进阶应用" class="headerlink" title="进阶应用"></a><strong>进阶应用</strong></h2><p>当你学会使用 Markdown 之后，你会发现 Markdown 还有更多好玩的地方。例如：开源的 gitbook 就可以教你把一个个 Markdown 文件组织起来，弄成一本电子书。</p>
-<p><img src="https://pic2.zhimg.com/80/v2-cdc7ada790a4473145b3c1207a3f8495_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>具体如何操作，可以参考这里：**<a href="https://link.zhihu.com/?target=https://github.com/chenyurong/gitbook-notebook">https://github.com/chenyurong/g</a>**</p>
+<p>字面意思是”拽着鞋带把自己拉起来”，这当然是不可能的事情。最早的时候，工程师们用它来比喻，计算机启动是一个很矛盾的过程：必须先运行程序，然后计算机才能启动，但是计算机不启动就无法运行程序！</p>
+<p>早期真的是这样，必须想尽各种办法，把一小段程序装进内存，然后计算机才能正常运行。所以，工程师们把这个过程叫做”拉鞋带”，久而久之就简称为 boot 了。</p>
+<p>计算机的整个启动过程分成四个阶段。</p>
+<p><strong>一、第一阶段：BIOS</strong></p>
+<p>上个世纪 70 年代初，”只读内存”（read-only memory，缩写为 ROM）发明，开机程序被刷入 ROM 芯片，计算机通电后，第一件事就是读取它。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201302/bg2013021502.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>这块芯片里的程序叫做”基本輸出輸入系統”（Basic Input/Output System），简称为<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/BIOS">BIOS</a>。</p>
+<p><strong>1.1 硬件自检</strong></p>
+<p>BIOS 程序首先检查，计算机硬件能否满足运行的基本条件，这叫做”硬件自检”（Power-On Self-Test），缩写为<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Power-on_self-test">POST</a>。</p>
+<p>如果硬件出现问题，主板会发出不同含义的<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Power-on_self-test#Original_IBM_POST_beep_codes">蜂鸣</a>，启动中止。如果没有问题，屏幕就会显示出 CPU、内存、硬盘等信息。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201302/bg2013021503.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>1.2 启动顺序</strong></p>
+<p>硬件自检完成后，BIOS 把控制权转交给下一阶段的启动程序。</p>
+<p>这时，BIOS 需要知道，”下一阶段的启动程序”具体存放在哪一个设备。也就是说，BIOS 需要有一个外部储存设备的排序，排在前面的设备就是优先转交控制权的设备。这种排序叫做”启动顺序”（Boot Sequence）。</p>
+<p>打开 BIOS 的操作界面，里面有一项就是”设定启动顺序”。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201302/bg2013021504.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>二、第二阶段：主引导记录</strong></p>
+<p>BIOS 按照”启动顺序”，把控制权转交给排在第一位的储存设备。</p>
+<p>这时，计算机读取该设备的第一个扇区，也就是读取最前面的 512 个字节。如果这 512 个字节的最后两个字节是 0x55 和 0xAA，表明这个设备可以用于启动；如果不是，表明设备不能用于启动，控制权于是被转交给”启动顺序”中的下一个设备。</p>
+<p>这最前面的 512 个字节，就叫做<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Master_boot_record">“主引导记录”</a>（Master boot record，缩写为 MBR）。</p>
+<p><strong>2.1 主引导记录的结构</strong></p>
+<p>“主引导记录”只有 512 个字节，放不了太多东西。它的主要作用是，告诉计算机到硬盘的哪一个位置去找操作系统。</p>
+<p>主引导记录由三个部分组成：</p>
+<blockquote>
+<p>（1） 第 1-446 字节：调用操作系统的机器码。</p>
+<p>（2） 第 447-510 字节：分区表（Partition table）。</p>
+<p>（3） 第 511-512 字节：主引导记录签名（0x55 和 0xAA）。</p>
+</blockquote>
+<p>其中，第二部分”分区表”的作用，是将硬盘分成若干个区。</p>
+<p><strong>2.2 分区表</strong></p>
+<p>硬盘分区有很多<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Disk_partitioning#Benefits_of_multiple_partitions">好处</a>。考虑到每个区可以安装不同的操作系统，”主引导记录”因此必须知道将控制权转交给哪个区。</p>
+<p>分区表的长度只有 64 个字节，里面又分成四项，每项 16 个字节。所以，一个硬盘最多只能分四个一级分区，又叫做”主分区”。</p>
+<p>每个主分区的 16 个字节，由 6 个部分组成：</p>
+<blockquote>
+<p>（1） 第 1 个字节：如果为 0x80，就表示该主分区是激活分区，控制权要转交给这个分区。四个主分区里面只能有一个是激活的。</p>
+<p>（2） 第 2-4 个字节：主分区第一个扇区的物理位置（柱面、磁头、扇区号等等）。</p>
+<p>（3） 第 5 个字节：<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Partition_type">主分区类型</a>。</p>
+<p>（4） 第 6-8 个字节：主分区最后一个扇区的物理位置。</p>
+<p>（5） 第 9-12 字节：该主分区第一个扇区的逻辑地址。</p>
+<p>（6） 第 13-16 字节：主分区的扇区总数。</p>
+</blockquote>
+<p>最后的四个字节（”主分区的扇区总数”），决定了这个主分区的长度。也就是说，一个主分区的扇区总数最多不超过 2 的 32 次方。</p>
+<p>如果每个扇区为 512 个字节，就意味着单个分区最大不超过 2TB。再考虑到扇区的逻辑地址也是 32 位，所以单个硬盘可利用的空间最大也不超过 2TB。如果想使用更大的硬盘，只有 2 个方法：一是提高每个扇区的字节数，二是<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/GUID_Partition_Table">增加扇区总数</a>。</p>
+<p><strong>三、第三阶段：硬盘启动</strong></p>
+<p>这时，计算机的控制权就要转交给硬盘的某个分区了，这里又分成三种情况。</p>
+<p><strong>3.1 情况 A：卷引导记录</strong></p>
+<p>上一节提到，四个主分区里面，只有一个是激活的。计算机会读取激活分区的第一个扇区，叫做<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Volume_Boot_Record">“卷引导记录</a>“（Volume boot record，缩写为 VBR）。</p>
+<p>“卷引导记录”的主要作用是，告诉计算机，操作系统在这个分区里的位置。然后，计算机就会加载操作系统了。</p>
+<p><strong>3.2 情况 B：扩展分区和逻辑分区</strong></p>
+<p>随着硬盘越来越大，四个主分区已经不够了，需要更多的分区。但是，分区表只有四项，因此规定有且仅有一个区可以被定义成”扩展分区”（Extended partition）。</p>
+<p>所谓”扩展分区”，就是指这个区里面又分成多个区。这种分区里面的分区，就叫做”逻辑分区”（logical partition）。</p>
+<p>计算机先读取扩展分区的第一个扇区，叫做<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Extended_partition">“扩展引导记录”</a>（Extended boot record，缩写为 EBR）。它里面也包含一张 64 字节的分区表，但是最多只有两项（也就是两个逻辑分区）。</p>
+<p>计算机接着读取第二个逻辑分区的第一个扇区，再从里面的分区表中找到第三个逻辑分区的位置，以此类推，直到某个逻辑分区的分区表只包含它自身为止（即只有一个分区项）。因此，扩展分区可以包含无数个逻辑分区。</p>
+<p>但是，似乎很少通过这种方式启动操作系统。如果操作系统确实安装在扩展分区，一般采用下一种方式启动。</p>
+<p><strong>3.3 情况 C：启动管理器</strong></p>
+<p>在这种情况下，计算机读取”主引导记录”前面 446 字节的机器码之后，不再把控制权转交给某一个分区，而是运行事先安装的<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Boot_loader#Modern_boot_loaders">“启动管理器”</a>（boot loader），由用户选择启动哪一个操作系统。</p>
+<p>Linux 环境中，目前最流行的启动管理器是<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/GNU_GRUB">Grub</a>。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201302/bg2013021505.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>四、第四阶段：操作系统</strong></p>
+<p>控制权转交给操作系统后，操作系统的内核首先被载入内存。</p>
+<p>以 Linux 系统为例，先载入/boot 目录下面的 kernel。内核加载成功后，第一个运行的程序是/sbin/init。它根据配置文件（Debian 系统是/etc/initab）产生 init 进程。这是 Linux 启动后的第一个进程，pid 进程编号为 1，其他进程都是它的后代。</p>
+<p>然后，init 线程加载系统的各个模块，比如窗口程序和网络程序，直至执行/bin/login 程序，跳出登录界面，等待用户输入用户名和密码。</p>
+<p>至此，全部启动过程完成。</p>
+<p>（完）</p>
+<h3 id="文档信息"><a href="#文档信息" class="headerlink" title="文档信息"></a>文档信息</h3><ul>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享 3.0 许可证</a>）</li>
+<li>发表日期： 2013 年 2 月 16 日</li>
+</ul>
 
             </div>
             <hr>
@@ -346,7 +372,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Markdown%E6%8A%80%E5%B7%A7/">Markdown技巧</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86/">计算机底层知识</a>
                     
                   </div>
                 
@@ -354,7 +380,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Markdown/">Markdown</a>
+                      <a class="hover-with-bg" href="/tags/%E5%BA%95%E5%B1%82%E6%9E%B6%E6%9E%84/">底层架构</a>
                     
                   </div>
                 
@@ -371,9 +397,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/23/PAC%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                      <a href="/2021/06/10/%E9%98%AE%E4%B8%80%E5%B3%B0_%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PAC模式和全局代理模式的区别</span>
+                        <span class="hidden-mobile">编译器的工作过程</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -381,8 +407,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/21/Typora+Picgo+Gitee%E6%9E%84%E5%BB%BA%E7%BD%91%E7%BB%9C%E5%9B%BE%E5%BA%8A%E7%AC%94%E8%AE%B0/">
-                        <span class="hidden-mobile">Typora+Picgo+Gitee构建网络图床笔记</span>
+                      <a href="/2021/06/10/%E9%98%AE%E4%B8%80%E5%B3%B0_%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/">
+                        <span class="hidden-mobile">进程与线程的一个简单解释</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

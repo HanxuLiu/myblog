@@ -18,9 +18,25 @@
   <meta name="author" content="刘跑跑">
   <meta name="keywords" content="">
   
-  <title>分类 - 搭建图床 - 跑跑的小屋</title>
+  <title>Unix 目录结构的来历 - 跑跑的小屋</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -190,14 +206,59 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/category.jpg') no-repeat center center;
+         style="background: url('/img/page.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类 - 搭建图床">
+            <span class="h2" id="subtitle" title="Unix 目录结构的来历">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-10 18:00" pubdate>
+        2021年6月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      613 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -210,40 +271,140 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/05/21/Typora+Picgo+Gitee%E6%9E%84%E5%BB%BA%E7%BD%91%E7%BB%9C%E5%9B%BE%E5%BA%8A%E7%AC%94%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Typora+Picgo+Gitee构建网络图床笔记</span>
-      <time style="float: right;">05-21</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Unix 目录结构的来历</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Unix-目录结构的来历"><a href="#Unix-目录结构的来历" class="headerlink" title="Unix 目录结构的来历"></a>Unix 目录结构的来历</h1><p>作者： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/02/">2012 年 2 月 6 日</a></p>
+<p>Unix（包含 Linux）的初学者，常常会很困惑，不明白目录结构的含义何在。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201202/bg2012020601.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>举例来说，根目录下面有一个子目录/bin，用于存放二进制程序。但是，/usr 子目录下面还有/usr/bin，以及/usr/local/bin，也用于存放二进制程序；某些系统甚至还有/opt/bin。它们有何区别？</p>
+<p>长久以来，我也感到很费解，不明白为什么这样设计。像大多数人一样，我只是根据<a target="_blank" rel="noopener" href="http://www.pathname.com/fhs/pub/fhs-2.3.html">《Unix 文件系统结构标准》</a>（Filesystem Hierarchy Standard），死记硬背不同目录的区别。</p>
+<p>昨天，我读到了 Rob Landley 的<a target="_blank" rel="noopener" href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">简短解释</a>，这才恍然大悟，原来 Unix 目录结构是历史造成的。</p>
+<p>话说 1969 年，<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2009/06/unix_turns_40.html">Ken Thompson</a>和<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/10/dennis_ritchie.html">Dennis Ritchie</a>在小型机 PDP-7 上发明了 Unix。1971 年，他们将主机升级到了 PDP-11。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201202/bg2012020602.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>当时，他们使用一种叫做 RK05 的储存盘，一盘的容量大约是 1.5MB。</p>
+<p><img src="/http://www.ruanyifeng.com/blogimg/asset/201202/bg2012020603.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>没过多久，操作系统（根目录）变得越来越大，一块盘已经装不下了。于是，他们加上了第二盘 RK05，并且规定第一块盘专门放系统程序，第二块盘专门放用户自己的程序，因此挂载的目录点取名为/usr。也就是说，根目录”/“挂载在第一块盘，”/usr”目录挂载在第二块盘。除此之外，两块盘的目录结构完全相同，第一块盘的目录（/bin, /sbin, /lib, /tmp…）都在/usr 目录下重新出现一次。</p>
+<p>后来，第二块盘也满了，他们只好又加了第三盘 RK05，挂载的目录点取名为/home，并且规定/usr 用于存放用户的程序，/home 用于存放用户的数据。</p>
+<p>从此，这种目录结构就延续了下来。随着硬盘容量越来越大，各个目录的含义进一步得到明确。</p>
+<p>**/**：存放系统程序，也就是 At&amp;t 开发的 Unix 程序。</p>
+<p><strong>/usr</strong>：存放 Unix 系统商（比如 IBM 和 HP）开发的程序。</p>
+<p><strong>/usr/local</strong>：存放用户自己安装的程序。</p>
+<p><strong>/opt</strong>：在某些系统，用于存放第三方厂商开发的程序，所以取名为 option，意为”选装”。</p>
+<p>（完）</p>
+<h3 id="文档信息"><a href="#文档信息" class="headerlink" title="文档信息"></a>文档信息</h3><ul>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享 3.0 许可证</a>）</li>
+<li>发表日期： 2012 年 2 月 6 日</li>
+</ul>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/10/%E9%98%AE%E4%B8%80%E5%B3%B0_Linux%20%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux 的启动流程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/10/%E9%98%AE%E4%B8%80%E5%B3%B0_User%20space%20%E4%B8%8E%20Kernel%20space/">
+                        <span class="hidden-mobile">User space 与 Kernel space</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"qjBgCyVjG8grj10lG1U7MT04-gzGzoHsz","appKey":"f4ixfRSd6PzI51T4TjTBiVNA","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://qjbgcyvj.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          { el: "#valine", path: window.location.pathname }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -351,9 +512,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 

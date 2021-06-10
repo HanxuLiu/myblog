@@ -307,7 +307,7 @@
 <p>简单说，TCP 协议的作用是，保证数据通信的完整性和可靠性，防止丢包。</p>
 <h2 id="二、TCP-数据包的大小"><a href="#二、TCP-数据包的大小" class="headerlink" title="二、TCP 数据包的大小"></a>二、TCP 数据包的大小</h2><p>以太网数据包（packet）的大小是固定的，最初是 1518 字节，后来增加到 1522 字节。其中， 1500 字节是负载（payload），22 字节是头信息（head）。</p>
 <p>IP 数据包在以太网数据包的负载里面，它也有自己的头信息，最少需要 20 字节，所以 IP 数据包的负载最多为 1480 字节。</p>
-<p><img src="/blogimg/asset/201205/bg2012052913.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201205/bg2012052913.png" srcset="/img/loading.gif" lazyload></p>
 <p>（图片说明：IP 数据包在以太网数据包里面，TCP 数据包在 IP 数据包里面。）</p>
 <p>TCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要 20 字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为 1400 字节左右。</p>
 <p>因此，一条 1500 字节的信息需要两个 TCP 数据包。HTTP/2 协议的一大改进， 就是压缩 HTTP 协议的头信息，使得一个 HTTP 请求可以放在一个 TCP 数据包里面，而不是分成多个，这样就提高了速度。</p>
@@ -391,6 +391,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/06/10/%E9%98%AE%E4%B8%80%E5%B3%B0_%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">进程与线程的一个简单解释</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
