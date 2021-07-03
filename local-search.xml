@@ -4,6 +4,206 @@
   
   
   <entry>
+    <title>Linux中xx命令介绍7</title>
+    <link href="/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D7/"/>
+    <url>/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D7/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux中xx命令介绍6</title>
+    <link href="/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D6/"/>
+    <url>/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D6/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux中xx命令介绍5</title>
+    <link href="/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D5/"/>
+    <url>/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D5/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux中xx命令介绍4</title>
+    <link href="/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D4/"/>
+    <url>/2021/07/03/Linux%E4%B8%ADxx%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D4/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>mount命令-挂载磁盘</title>
+    <link href="/2021/07/03/Linux_mount%E5%91%BD%E4%BB%A4-%E6%8C%82%E8%BD%BD%E7%A3%81%E7%9B%98/"/>
+    <url>/2021/07/03/Linux_mount%E5%91%BD%E4%BB%A4-%E6%8C%82%E8%BD%BD%E7%A3%81%E7%9B%98/</url>
+    
+    <content type="html"><![CDATA[<h2 id="mount命令介绍"><a href="#mount命令介绍" class="headerlink" title="mount命令介绍"></a>mount命令介绍</h2><p>用于加载文件系统到指定的加载点。此命令的最常用于挂载cdrom，使我们可以访问cdrom中的数据，因为你将光盘插入cdrom中，Linux并不会自动挂载，必须使用Linux mount命令来手动完成挂载。</p><h2 id="mount命令常用参数"><a href="#mount命令常用参数" class="headerlink" title="mount命令常用参数"></a>mount命令常用参数</h2><table><thead><tr><th>-t</th><th>指定挂载类型</th></tr></thead><tbody><tr><td>-a</td><td>加载文件“/etc/fstab”中描述的所有文件系统</td></tr></tbody></table><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>挂载 /dev/cdrom 到 /mnt：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@linuxcool ~]# mount /dev/cdrom /mnt<br></code></pre></td></tr></table></figure><p>启动所有挂载：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@linuxcool ~]# mount -a<br></code></pre></td></tr></table></figure><p>挂载nfs格式文件系统：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@linuxcool ~]# mount -t nfs /123 /mnt  <br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>df命令-显示磁盘空间</title>
+    <link href="/2021/07/03/Linux_df%E5%91%BD%E4%BB%A4-%E6%98%BE%E7%A4%BA%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/"/>
+    <url>/2021/07/03/Linux_df%E5%91%BD%E4%BB%A4-%E6%98%BE%E7%A4%BA%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/</url>
+    
+    <content type="html"><![CDATA[<h2 id="df命令介绍"><a href="#df命令介绍" class="headerlink" title="df命令介绍"></a>df命令介绍</h2><p>df命令的英文全称即<code>Disk Free</code>，顾名思义功能是用于显示系统上可使用的磁盘空间。默认显示单位为KB，建议使用“df -h”的参数组合，根据磁盘容量自动变换合适的单位，更利于人性化阅读。</p><p>日常普遍用该命令可以查看磁盘被占用了多少空间、还剩多少空间等信息。</p><h2 id="df命令常用参数"><a href="#df命令常用参数" class="headerlink" title="df命令常用参数"></a>df命令常用参数</h2><table><thead><tr><th>-a</th><th>显示所有系统文件</th></tr></thead><tbody><tr><td>-h</td><td>以容易阅读的方式显示</td></tr></tbody></table><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="df默认选项"><a href="#df默认选项" class="headerlink" title="df默认选项"></a><code>df</code>默认选项</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@paopao ~]# df<br>Filesystem     1K-blocks    Used Available Use% Mounted on<br>devtmpfs          347636       0    347636   0% /dev<br>tmpfs             362780       0    362780   0% /dev/shm<br>tmpfs             362780   41188    321592  12% /run<br>tmpfs             362780       0    362780   0% /sys/fs/cgroup<br>/dev/vda1       20510332 1610056  17835368   9% /<br>tmpfs              72556       0     72556   0% /run/user/0<br>[root@paopao ~]# <br></code></pre></td></tr></table></figure><h3 id="df-h便于人性化阅读"><a href="#df-h便于人性化阅读" class="headerlink" title="df -h便于人性化阅读"></a><code>df -h</code>便于人性化阅读</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@paopao ~]# df -h<br>Filesystem      Size  Used Avail Use% Mounted on<br>devtmpfs        340M     0  340M   0% /dev<br>tmpfs           355M     0  355M   0% /dev/shm<br>tmpfs           355M   41M  315M  12% /run<br>tmpfs           355M     0  355M   0% /sys/fs/cgroup<br>/dev/vda1        20G  1.6G   18G   9% /<br>tmpfs            71M     0   71M   0% /run/user/0<br>[root@paopao ~]# <br></code></pre></td></tr></table></figure><h3 id="df-ah显示全部文件系统"><a href="#df-ah显示全部文件系统" class="headerlink" title="df -ah显示全部文件系统"></a><code>df -ah</code>显示全部文件系统</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@paopao ~]# df -ah<br>Filesystem      Size  Used Avail Use% Mounted on<br>sysfs              0     0     0    - /sys<br>proc               0     0     0    - /proc<br>devtmpfs        340M     0  340M   0% /dev<br>securityfs         0     0     0    - /sys/kernel/security<br>tmpfs           355M     0  355M   0% /dev/shm<br>devpts             0     0     0    - /dev/pts<br>tmpfs           355M   41M  315M  12% /run<br>tmpfs           355M     0  355M   0% /sys/fs/cgroup<br>cgroup             0     0     0    - /sys/fs/cgroup/systemd<br>pstore             0     0     0    - /sys/fs/pstore<br>bpf                0     0     0    - /sys/fs/bpf<br>cgroup             0     0     0    - /sys/fs/cgroup/memory<br>cgroup             0     0     0    - /sys/fs/cgroup/cpu,cpuacct<br>cgroup             0     0     0    - /sys/fs/cgroup/net_cls,net_prio<br>cgroup             0     0     0    - /sys/fs/cgroup/hugetlb<br>cgroup             0     0     0    - /sys/fs/cgroup/cpuset<br>cgroup             0     0     0    - /sys/fs/cgroup/freezer<br>cgroup             0     0     0    - /sys/fs/cgroup/perf_event<br>cgroup             0     0     0    - /sys/fs/cgroup/devices<br>cgroup             0     0     0    - /sys/fs/cgroup/pids<br>cgroup             0     0     0    - /sys/fs/cgroup/blkio<br>cgroup             0     0     0    - /sys/fs/cgroup/rdma<br>none               0     0     0    - /sys/kernel/tracing<br>configfs           0     0     0    - /sys/kernel/config<br>/dev/vda1        20G  1.6G   18G   9% /<br>mqueue             0     0     0    - /dev/mqueue<br>hugetlbfs          0     0     0    - /dev/hugepages<br>debugfs            0     0     0    - /sys/kernel/debug<br>systemd-1          -     -     -    - /proc/sys/fs/binfmt_misc<br>binfmt_misc        0     0     0    - /proc/sys/fs/binfmt_misc<br>tmpfs            71M     0   71M   0% /run/user/0<br>[root@paopao ~]#      <br></code></pre></td></tr></table></figure><h3 id="df-目录-指定目录下的文件’指定文件所在分区的磁盘使用情况"><a href="#df-目录-指定目录下的文件’指定文件所在分区的磁盘使用情况" class="headerlink" title="df  目录 指定目录下的文件’指定文件所在分区的磁盘使用情况"></a><code>df  目录</code> 指定目录下的文件’指定文件所在分区的磁盘使用情况</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@paopao ~]# df /root/.bashrc <br>Filesystem     1K-blocks    Used Available Use% Mounted on<br>/dev/vda1       20510332 1610068  17835356   9% /<br>[root@paopao ~]# <br>[root@paopao ~]# <br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>yum命令-RPM包管理器</title>
+    <link href="/2021/07/03/Linux_yum%E5%91%BD%E4%BB%A4-RPM%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    <url>/2021/07/03/Linux_yum%E5%91%BD%E4%BB%A4-RPM%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="yum命令介绍"><a href="#yum命令介绍" class="headerlink" title="yum命令介绍"></a>yum命令介绍</h2><p>yum命令是在Fedora和RedHat以及SUSE中基于rpm的软件包管理器，它可以使系统管理人员交互和自动化地更新与管理RPM软件包，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。</p><h2 id="yum命令常用参数"><a href="#yum命令常用参数" class="headerlink" title="yum命令常用参数"></a>yum命令常用参数</h2><table><thead><tr><th>-h</th><th>显示帮助信息</th></tr></thead><tbody><tr><td>-y</td><td>对所有的提问都回答“yes”</td></tr><tr><td>install</td><td>安装rpm软件包</td></tr><tr><td>update</td><td>更新rpm软件包</td></tr><tr><td>check-update</td><td>检查是否有可用的更新rpm软件包</td></tr><tr><td>remove</td><td>删除指定的rpm软件包</td></tr><tr><td>list</td><td>显示软件包的信息</td></tr><tr><td>search</td><td>检查软件包的信息</td></tr><tr><td>info</td><td>显示指定的rpm软件包的描述信息和概要信息</td></tr><tr><td>clean</td><td>清理yum过期的缓存</td></tr><tr><td>resolvedep</td><td>显示rpm软件包的依赖关系</td></tr><tr><td>localinstall</td><td>安装本地的rpm软件包</td></tr><tr><td>localupdate</td><td>显示本地rpm软件包进行更新</td></tr><tr><td>deplist</td><td>显示rpm软件包的所有依赖关系</td></tr></tbody></table><h2 id="国内-yum-源"><a href="#国内-yum-源" class="headerlink" title="国内 yum 源"></a>国内 yum 源</h2><p>网易（163）yum源是国内最好的yum源之一 ，无论是速度还是软件版本，都非常的不错。</p><p>将yum源设置为163 yum，可以提升软件包安装和更新的速度，同时避免一些常见软件版本无法找到。</p><h3 id="yum源配置方法"><a href="#yum源配置方法" class="headerlink" title="yum源配置方法"></a>yum源配置方法</h3><p>首先备份/etc/yum.repos.d/CentOS-Base.repo</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup<br></code></pre></td></tr></table></figure><p>下载对应版本 repo 文件, 放入 /etc/yum.repos.d/ (操作前请做好相应备份)</p><ul><li><a href="http://mirrors.163.com/.help/CentOS5-Base-163.repo">CentOS5</a> ：<a href="http://mirrors.163.com/.help/CentOS5-Base-163.repo">http://mirrors.163.com/.help/CentOS5-Base-163.repo</a></li><li><a href="http://mirrors.163.com/.help/CentOS6-Base-163.repo">CentOS6</a> ：<a href="http://mirrors.163.com/.help/CentOS6-Base-163.repo">http://mirrors.163.com/.help/CentOS6-Base-163.repo</a></li><li><a href="http://mirrors.163.com/.help/CentOS7-Base-163.repo">CentOS7</a> ：<a href="http://mirrors.163.com/.help/CentOS7-Base-163.repo">http://mirrors.163.com/.help/CentOS7-Base-163.repo</a></li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget http://mirrors.163.com/.help/CentOS6-Base-163.repo<br>mv CentOS6-Base-163.repo CentOS-Base.repo<br></code></pre></td></tr></table></figure><p>运行以下命令生成缓存</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum clean all<br>yum makecache<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>rz、sz命令-文件传输</title>
+    <link href="/2021/07/03/Linux_rz%E3%80%81sz%E5%91%BD%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/"/>
+    <url>/2021/07/03/Linux_rz%E3%80%81sz%E5%91%BD%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-软件安装"><a href="#1-软件安装" class="headerlink" title="1. 软件安装"></a>1. 软件安装</h1><p>rz/sz命令用来在xshell远程服务器和本地之间传输文件，主要有两种方式安装，yum安装或者编译安装。</p><h2 id="1-1-yum包安装"><a href="#1-1-yum包安装" class="headerlink" title="1.1 yum包安装"></a>1.1 yum包安装</h2><p>root账号登陆后执行以下命令：</p><blockquote><p>yum install -y lrzsz</p></blockquote><h2 id="2-2-源码编译安装"><a href="#2-2-源码编译安装" class="headerlink" title="2.2 源码编译安装"></a>2.2 源码编译安装</h2><p>root账号登陆后，依次执行以下命令：</p><blockquote><p>cd /tmp<br>wget <a href="http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz">http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</a><br>tar zxvf lrzsz-0.12.20.tar.gz &amp;&amp; cd lrzsz-0.12.20<br>./configure &amp;&amp; make &amp;&amp; make install</p></blockquote><p>上面安装过程默认把lsz/lrz安装到了/usr/local/bin/目录下，现在我们还不能使用sz/rz命令，需要手动建立软链接：</p><blockquote><p>cd /usr/bin<br>ln -s /usr/local/bin/lsz sz<br>ln -s /usr/local/bin/lrz rz</p></blockquote><h1 id="2-使用说明"><a href="#2-使用说明" class="headerlink" title="2. 使用说明"></a>2. 使用说明</h1><h2 id="2-1-sz命令：发送文件到本地目录"><a href="#2-1-sz命令：发送文件到本地目录" class="headerlink" title="2.1 sz命令：发送文件到本地目录"></a>2.1 sz命令：发送文件到本地目录</h2><blockquote><p>sz filename</p></blockquote><h2 id="2-2-rz命令：将本地文件上传到linux服务器"><a href="#2-2-rz命令：将本地文件上传到linux服务器" class="headerlink" title="2.2 rz命令：将本地文件上传到linux服务器"></a>2.2 rz命令：将本地文件上传到linux服务器</h2><blockquote><p>rz</p></blockquote><p>执行此命令后，在弹出框中选择要上传的文件即可。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>V2Ray配置教程</title>
     <link href="/2021/07/03/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91_V2Ray%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/"/>
     <url>/2021/07/03/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91_V2Ray%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</url>
